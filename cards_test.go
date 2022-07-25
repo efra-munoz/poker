@@ -18,3 +18,33 @@ func TestNew(t *testing.T) {
 			}
 		})
 }
+
+func TestString(t *testing.T) {
+	t.Run("should return a string representation of a Rank",
+		func(t *testing.T) {
+			expected := "Ace"
+
+			if Ace.String() != expected {
+				t.Errorf("expected %q but got %q", expected, Ace)
+			}
+		})
+
+	t.Run("should return a string representation of a suit",
+		func(t *testing.T) {
+			expected := "Spades"
+
+			if Spades.String() != expected {
+				t.Errorf("expected %q but got %q", expected, Spades)
+			}
+		})
+
+	t.Run("should return a string representation of a card",
+		func(t *testing.T) {
+			card := New(Ace, Spades)
+			expected := "Ace of Spades"
+
+			if card.String() != expected {
+				t.Errorf("expected %q but got %q", expected, card)
+			}
+		})
+}
